@@ -1176,7 +1176,7 @@
 
           /* Add focus styles for accessibility */
           .accordion_cms_item:focus {
-            outline: 2px solid var(--_theme---border-secondary), #000);
+            outline: 2px solid var(--_theme---border-secondary);
             outline-offset: 2px;
           }
 
@@ -2812,7 +2812,7 @@
                 <div line-in="true" class="home-tabs_line-divider"></div>
                 <div class="home-work_component">
                   <div custom-in="true" class="home-work_item-outer"><a
-                      data-video-src="https://cdn.jsdelivr.net/gh/matteofabbiani/matteofabbiani@main/mf-work-indigo.mp4"
+                      data-video-src="geekssort.mov"
                       card-magnetic-rotate="" data-magnetic="false" data-cursor-morph="false"
                       data-video-on-hover="not-active" href="https://indigo.ai/en/product/platform/" target="_blank"
                       class="home-work_item w-inline-block">
@@ -2820,9 +2820,9 @@
                       <div class="home-work_item-wrapper">
                         <div id="w-node-_89c31c79-fdfc-3f4c-d0fc-d8907799a31b-41444648" class="home-work_media-wrapper">
                           <img
-                            src="https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc589c7e82c1afb6c8a16_mf-work-indigo.avif"
+                            src="geekssort.png"
                             loading="eager" sizes="(max-width: 2336px) 100vw, 2336px"
-                            srcset="https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc589c7e82c1afb6c8a16_mf-work-indigo-p-500.avif 500w, https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc589c7e82c1afb6c8a16_mf-work-indigo-p-800.avif 800w, https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc589c7e82c1afb6c8a16_mf-work-indigo-p-1080.avif 1080w, https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc589c7e82c1afb6c8a16_mf-work-indigo.avif 2336w"
+                            srcset="geekssort.png 500w, geekssort.png 800w, geekssort.png 1080w, geekssort.png 2336w"
                             alt="" class="home-work_image" /><video muted="" loop="" webkit-playsinline=""
                             playsinline="" src="" class="home-work_video"></video>
                         </div>
@@ -2862,7 +2862,7 @@
                           </div>
                           <div class="home-work_item-btm">
                             <div class="home-work_logo-wrap"><img
-                                src="https://cdn.prod.website-files.com/685992d920f7167b41444649/6883e7af1078611e78fb91a1_indigo-logo-light.svg"
+                                src="geekssort.png"
                                 loading="lazy" alt="" class="home-work_logo" /></div>
                             <div data-cursor-morph="true" data-btn-size="small" data-btn-icon="icon"
                               data-magnetic="true" class="btn-card">
@@ -5299,33 +5299,55 @@
 
   <!-- Smooth scrolling for Get Connect button -->
   <script>
+    // Easing function for smooth scrolling - defined in global scope
+    function easeInOutQuad(t, b, c, d) {
+      t /= d/2;
+      if (t < 1) return c/2*t*t + b;
+      t--;
+      return -c/2 * (t*(t-2) - 1) + b;
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       const getConnectBtn = document.getElementById('get-connect-btn');
+      let animationFrameId = null;
+      
       if (getConnectBtn) {
         getConnectBtn.addEventListener('click', function(e) {
           e.preventDefault();
           
-          // First try to find the footer or any element at the bottom of the page
-          const footer = document.querySelector('footer, .footer, [class*="footer"], [id*="footer"]') || document.documentElement;
+          // Cancel any existing animation to prevent conflicts
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+          }
           
-          // Calculate the exact position to scroll to
-          const scrollToPosition = footer.scrollHeight || document.documentElement.scrollHeight - window.innerHeight;
+          // Get the document and window dimensions
+          const doc = document.documentElement;
+          const scrollToPosition = Math.max(
+            document.body.scrollHeight,
+            doc.scrollHeight,
+            document.body.offsetHeight,
+            doc.offsetHeight,
+            doc.clientHeight
+          ) - window.innerHeight;
           
-          // Use requestAnimationFrame for smoother animation
           const start = window.pageYOffset;
           const distance = scrollToPosition - start;
           const duration = 1000; // 1 second duration
           let startTime = null;
           
           function scrollAnimation(currentTime) {
-            if (startTime === null) startTime = currentTime;
+            if (!startTime) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
-            const run = easeInOutQuad(timeElapsed, start, distance, duration);
+            const progress = Math.min(timeElapsed / duration, 1);
+            const run = easeInOutQuad(progress, start, distance, 1);
+            
             window.scrollTo(0, run);
+            
             if (timeElapsed < duration) {
-              requestAnimationFrame(scrollAnimation);
+              animationFrameId = requestAnimationFrame(scrollAnimation);
             } else {
               window.scrollTo(0, scrollToPosition);
+              animationFrameId = null;
             }
           }
           
