@@ -131,10 +131,21 @@
 
   <!-- Footer copyright year - Auto update -->
   <script>document.addEventListener("DOMContentLoaded", function () {
+      // Update copyright year
       const yearSpan = document.querySelector('.footer_copy-year');
       const currentYear = new Date().getFullYear();
-
       yearSpan.textContent = currentYear;
+      
+      // Smooth scroll to footer when clicking contact buttons
+      document.querySelectorAll('a[href="#footer"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const footer = document.getElementById('footer');
+          if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
     });
   </script>
 </head>
@@ -2017,12 +2028,12 @@
                       <div data-icon-size="normal" class="btn-icon is-image">
                         <div class="btn-icon-wrap">
                           <div class="btn-icon-list"><img data-button-anim-target="" loading="lazy" alt=""
-                              src="https://cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png"
+                              src="/cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png"
                               sizes="100vw"
-                              srcset="https://cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png 500w, https://cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png 750w"
+                              srcset="/cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png 500w, /cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png 750w"
                               class="btn-icon-arrow is-image" /><img data-button-anim-target="" loading="lazy" alt=""
                               src="/cdn.prod.website-files.com/685992d920f7167b41444649/Artboard_1.png" sizes="100vw"
-                              srcset="https://cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png 500w, /cdn.prod.website-files.com/685992d920f7167b41444649/Artboard_1.png 750w"
+                              srcset="/cdn.prod.website-files.com/685992d920f7167b41444649/Baizid_khan.png 500w, /cdn.prod.website-files.com/685992d920f7167b41444649/Artboard_1.png 750w"
                               class="btn-icon-arrow is-image" /></div>
                         </div>
                       </div>
@@ -2857,12 +2868,12 @@
                             </div>
                             <div class="home-work_heading-wrapper">
                               <h3 data-text-in="lines" data-split="lines" class="home-work_heading heading-style-h4">
-                                Helped Indigo.ai raise €10m in funding with a new website and a light brand refresh</h3>
+                                Developed GeekSSort's website fully responsive and user friendly.</h3>
                             </div>
                           </div>
                           <div class="home-work_item-btm">
                             <div class="home-work_logo-wrap"><img
-                                src="geekssort.png"
+                                src="GeekSSort_LOGO.png"
                                 loading="lazy" alt="" class="home-work_logo" /></div>
                             <div data-cursor-morph="true" data-btn-size="small" data-btn-icon="icon"
                               data-magnetic="true" class="btn-card">
@@ -2985,17 +2996,17 @@
                       </div>
                     </a></div>
                   <div custom-in="true" class="home-work_item-outer"><a
-                      data-video-src="https://cdn.jsdelivr.net/gh/matteofabbiani/matteofabbiani@main/mf-work-nimbi.mp4"
+                      data-video-src="bulkmedi.mp4"
                       card-magnetic-rotate="" data-magnetic="false" data-cursor-morph="false"
-                      data-video-on-hover="not-active" href="https://nimbi-razor.webflow.io/" target="_blank"
+                      data-video-on-hover="not-active" href="https://bulkmedi.com/" target="_blank"
                       class="home-work_item w-inline-block">
                       <div class="home-work_item-bg"></div>
                       <div class="home-work_item-wrapper">
                         <div id="w-node-_7a7b2393-a729-56bd-d1b7-427b813b4352-41444648" class="home-work_media-wrapper">
                           <img
-                            src="https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc5890c8d9aac911aae40_mf-work-nimbi.avif"
+                            src="bulkmedi.png"
                             loading="eager" sizes="(max-width: 2120px) 100vw, 2120px"
-                            srcset="https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc5890c8d9aac911aae40_mf-work-nimbi-p-500.avif 500w, https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc5890c8d9aac911aae40_mf-work-nimbi-p-800.avif 800w, https://cdn.prod.website-files.com/685992d920f7167b41444649/686bc5890c8d9aac911aae40_mf-work-nimbi.avif 2120w"
+                            srcset="bulkmedi.png 500w, bulkmedi.png 800w, bulkmedi.png 2120w"
                             alt="" class="home-work_image" /><video muted="" loop="" webkit-playsinline=""
                             playsinline="" src="" class="home-work_video"></video>
                         </div>
@@ -3022,13 +3033,13 @@
                             </div>
                             <div class="home-work_heading-wrapper">
                               <h3 data-text-in="lines" data-split="lines" class="home-work_heading heading-style-h4">
-                                Helped Nimbi increase conversions by 48% and reduce time to iterate on landing pages
+                                Helped BulkMedi increase conversions by 48% and reduce time to iterate on landing pages
                               </h3>
                             </div>
                           </div>
                           <div class="home-work_item-btm">
                             <div class="home-work_logo-wrap"><img
-                                src="https://cdn.prod.website-files.com/685992d920f7167b41444649/6883e7af4a64f46229832c3a_nimbi-logo-light.svg"
+                                src="BulkMedi-logo.png"
                                 loading="lazy" alt="" class="home-work_logo" /></div>
                             <div data-cursor-morph="true" data-btn-size="small" data-btn-icon="icon"
                               data-magnetic="true" class="btn-card">
@@ -4216,7 +4227,7 @@
                                   class="btn w-variant-93695551-4444-e4c1-51b0-880c9f7cdd70">
                                   <div class="btn-content w-variant-93695551-4444-e4c1-51b0-880c9f7cdd70">
                                     <div class="btn-content-mask"><span data-button-anim-target=""
-                                        class="btn-content-text">Book a Call</span></div>
+                                        class="btn-content-text">Contact</span></div>
                                     <div class="btn-icon-component">
                                       <div data-icon-size="normal" class="btn-icon is-icon">
                                         <div class="btn-icon-wrap">
@@ -4244,12 +4255,10 @@
                                     </div>
                                     <div data-button-anim-target="" class="btn-content-bg"></div>
                                   </div>
-                                  <div data-magnetic="false" class="g_clickable_wrap"><a target="_blank"
-                                      href="https://cal.com/m-on-one?overlayCalendar=true"
+                                  <div data-magnetic="false" class="g_clickable_wrap"><a href="#footer"
                                       class="g_clickable_link w-inline-block"><span
-                                        class="g_clickable_text u-sr-only">Book a Call</span></a><button type="button"
-                                      class="g_clickable_btn"><span class="g_clickable_text u-sr-only">Book a
-                                        Call</span></button></div>
+                                        class="g_clickable_text u-sr-only">Contact</span></a><button type="button"
+                                      class="g_clickable_btn"><span class="g_clickable_text u-sr-only">Contact</span></button></div>
                                 </div>
                               </div>
                             </div>
@@ -4321,7 +4330,7 @@
                                   class="btn w-variant-93695551-4444-e4c1-51b0-880c9f7cdd70">
                                   <div class="btn-content w-variant-93695551-4444-e4c1-51b0-880c9f7cdd70">
                                     <div class="btn-content-mask"><span data-button-anim-target=""
-                                        class="btn-content-text">Book a Call</span></div>
+                                        class="btn-content-text">Contact</span></div>
                                     <div class="btn-icon-component">
                                       <div data-icon-size="normal" class="btn-icon is-icon">
                                         <div class="btn-icon-wrap">
@@ -4349,12 +4358,10 @@
                                     </div>
                                     <div data-button-anim-target="" class="btn-content-bg"></div>
                                   </div>
-                                  <div data-magnetic="false" class="g_clickable_wrap"><a target="_blank"
-                                      href="https://cal.com/-on-one?overlayCalendar=true"
+                                  <div data-magnetic="false" class="g_clickable_wrap"><a href="#footer"
                                       class="g_clickable_link w-inline-block"><span
-                                        class="g_clickable_text u-sr-only">Book a Call</span></a><button type="button"
-                                      class="g_clickable_btn"><span class="g_clickable_text u-sr-only">Book a
-                                        Call</span></button></div>
+                                        class="g_clickable_text u-sr-only">Contact</span></a><button type="button"
+                                      class="g_clickable_btn"><span class="g_clickable_text u-sr-only">Contact</span></button></div>
                                 </div>
                               </div>
                             </div>
@@ -4421,7 +4428,7 @@
                                   class="btn w-variant-93695551-4444-e4c1-51b0-880c9f7cdd70">
                                   <div class="btn-content w-variant-93695551-4444-e4c1-51b0-880c9f7cdd70">
                                     <div class="btn-content-mask"><span data-button-anim-target=""
-                                        class="btn-content-text">Book a Call</span></div>
+                                        class="btn-content-text">Contact</span></div>
                                     <div class="btn-icon-component">
                                       <div data-icon-size="normal" class="btn-icon is-icon">
                                         <div class="btn-icon-wrap">
@@ -4449,12 +4456,10 @@
                                     </div>
                                     <div data-button-anim-target="" class="btn-content-bg"></div>
                                   </div>
-                                  <div data-magnetic="false" class="g_clickable_wrap"><a target="_blank"
-                                      href="https://cal.com/on-one?overlayCalendar=true"
+                                  <div data-magnetic="false" class="g_clickable_wrap"><a href="#footer"
                                       class="g_clickable_link w-inline-block"><span
-                                        class="g_clickable_text u-sr-only">Book a Call</span></a><button type="button"
-                                      class="g_clickable_btn"><span class="g_clickable_text u-sr-only">Book a
-                                        Call</span></button></div>
+                                        class="g_clickable_text u-sr-only">Contact</span></a><button type="button"
+                                      class="g_clickable_btn"><span class="g_clickable_text u-sr-only">Contact</span></button></div>
                                 </div>
                               </div>
                             </div>
@@ -4866,10 +4871,10 @@
   </div>
 </div>
 
-            <div class="btm-cta_meta-wrapper">
-              <div class="btm-cta_meta-wrapper-text">© <span class="footer_copy-year">[year auto updates]</span> BAIZID
-                KHAN. ALL RIGHTS RESERVED </div>
-            </div>
+            <footer id="footer" class="btm-cta_meta-wrapper">
+            <div class="btm-cta_meta-wrapper-text">  <a href="#footer" class="btm-cta_meta-wrapper-text">  </a>  <span class="footer_copy-year">[year auto updates]</span> BAIZID
+              KHAN. ALL RIGHTS RESERVED </div>
+          </footer>
           </div>
         </div>
         <div class="btm-cta_wrapper theme-dark">
