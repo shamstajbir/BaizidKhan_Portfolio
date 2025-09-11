@@ -4855,7 +4855,17 @@
   <script src="/cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js" type="text/javascript"></script>
   <script src="/cdn.prod.website-files.com/gsap/3.13.0/CustomEase.min.js" type="text/javascript"></script>
   <script src="/cdn.prod.website-files.com/gsap/3.13.0/Flip.min.js" type="text/javascript"></script>
-  <script type="text/javascript">gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase, Flip);</script>
+  <script src="fix-marquee.js" type="text/javascript"></script>
+  <script type="text/javascript">gsap.registerPlugin(ScrollTrigger);
+
+  // Initialize marquee after all assets are loaded
+  if (document.readyState === 'complete') {
+    initMarqueeScrollDirection();
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(initMarqueeScrollDirection, 100);
+    });
+  }</script>
   <!-- Libraries -->
   <!-- SwiperJS -->
   <script src="/cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
