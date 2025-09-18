@@ -2379,7 +2379,7 @@ figcaption {
   background-color: var(--swatch--transparent);
 }
 .btm-cta_text-wrapper {
-  max-width: 62rem;
+  max-width:70rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2639,16 +2639,16 @@ figcaption {
 }
 .home-problems_icon-wrapper {
   z-index: 3;
-  width: 46%;
+  width: 30%;
   position: absolute;
-  top: 30%;
+  top: 60%;
   overflow: visible;
 }
 .home-problems_icon-wrapper.is-1 {
-  left: -13%;
+  left: 7%;
 }
 .home-problems_icon-wrapper.is-2 {
-  inset: 5% -13% auto auto;
+  inset: 5% 7% auto auto;
 }
 .home-problems_icon {
   width: 100%;
